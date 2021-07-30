@@ -1,0 +1,77 @@
+<div class="task">
+    <div fxLayout="row" class="details-section">
+        <div fxFlex="70">
+            <div fxLayout="column" fxLayoutAlign="space-around start" style="height: 100px;">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                        <p class="id">#{{item._id}}</p>
+                        <span class="status">
+                            {{item.state.status | uppercase}}
+                        </span>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4px">
+                        <span class="washing" *ngIf="item.state.iswashing">
+                            WASHING
+                        </span>
+                        <span class="rashid" *ngIf="item.state.israshid">
+                            RASHID
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <p class="detail"><i class="fa fa-car" aria-hidden="true"> </i>
+                        {{item.info}}</p>
+                    <p class="detail"><i class="fa fa-user" aria-hidden="true"> </i>
+                        {{item.name}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="30">
+            <div fxLayout="column" fxLayoutAlign="space-around start" style="height: 100px;">
+                <div>
+                    <p class="detail"><i class="fa fa-paperclip" aria-hidden="true"> </i>
+                        <a>Repair Order</a>
+                    </p>
+                    <p class="detail"><i class="fa fa-paperclip" aria-hidden="true"> </i>
+                        <a>Invoice</a>
+                    </p>
+                </div>
+                <div>
+                    <p class="detail detail-wa">
+                        <a href="https://api.whatsapp.com/send?phone={{item.whatsappnumber}}" target="_blank">
+                            <i class="fa fa-whatsapp wa" aria-hidden="true"> </i> Whatsapp
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" class="invoice-section" fxLayoutAlign="space-around center">
+        <div fxFlex="33">
+            <p class="title">INVOICE</p>
+            <p class="detail">{{item.invoice.particulars | uppercase}}</p>
+        </div>
+        <div fxFlex="25">
+            <p class="title">CREATED BY</p>
+            <p class="detail">{{item.invoice.createdby | uppercase}}</p>
+        </div>
+        <div fxFlex="42">
+            <p class="title">COMPLETION DATE</p>
+            <p class="detail">{{item.invoice.completiondate | date: 'dd-MM-yyy hh:mm:ss a'}}
+            </p>
+        </div>
+    </div>
+
+    <div fxLayout="row" class="calculation-section" fxLayoutAlign="space-around center">
+        <div fxFlex>
+            <p class="title">TOTAL:</p>
+            <p class="detail">AED {{item.invoice.total}}</p>
+        </div>
+        <div fxFlex class="align-right">
+            <p class="title">AMOUNT DUE:</p>
+            <p class="amount-due">AED {{item.invoice.amountdue}}</p>
+        </div>
+    </div>
+</div>

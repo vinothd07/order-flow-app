@@ -1,0 +1,120 @@
+.task {
+    background: white;
+    border: solid 1px #e5e9ea;
+    border-radius: 5px;
+    cursor: move;
+    margin-bottom: 15px;
+    min-height: 220px;
+    max-height: 250px;
+
+    box-shadow: 0 7px 5px -3px rgb(0 0 0 / 9%), 0 4px 17px 11px rgb(0 0 0 / 1%);
+
+    .details-section {
+        min-height: 100px;
+        max-height: 120px;
+        border-bottom: 2px solid #d0d5d9;
+        padding: 4px 12px;
+        .id{
+            font-size: 22px;
+            font-weight: bolder;
+            color: #6fb362;
+            margin: 0;
+        }
+        .washing{
+            font-size: 7px;
+            border: 1px solid #9e46b9;
+            color: purple;
+            border-radius: 4px;
+            padding: 1px 4px;
+            font-weight: bolder;
+        }
+        .rashid{
+            font-size: 7px;
+            border: 1px solid orange;
+            font-weight: bolder;
+            color: orange;
+            border-radius: 4px;
+            padding: 1px 4px;
+        }
+        .status{
+            font-size: 9px;
+            font-weight: 600;
+            padding: 2px 8px;
+            background-color: #e3523f;
+            height: fit-content;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .detail{
+            color: #a2a4a8;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0;
+            i{
+                color: #93989c
+            }
+            .fa-paperclip{
+                transform: rotate(77deg);
+            }
+            a{
+                text-decoration: underline;
+                margin-left: 4px;
+                color: #a2a4a8;
+            }
+        }
+        .wa{
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #6fb262;
+            color: #6fb262;
+        }
+        .detail-wa{
+            color: #87be7c;
+            a {
+                color: #87be7c;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .invoice-section {
+        min-height: 50px;
+        max-height: 60px;
+        border-bottom: 2px solid #d0d5d9;
+        padding: 0 12px;
+        .title{
+            font-size: 8px;
+            font-weight: 100;
+            color: #999ea1;
+            margin: 0;
+        }
+        .detail{
+            font-size: 10px;
+            font-weight: 700;
+            color: #747474;
+            margin: 0;
+        }
+    }
+
+    .calculation-section {
+        min-height: 70px;
+        max-height: 80px;
+        padding: 0 12px;
+        .title{
+            font-size: 10px;
+            font-weight: 500;
+            color: #999ea1;
+            margin: 0;
+        }
+        .detail{
+            font-size: 12px;
+            font-weight: 700;
+            color: #747474;
+            margin: 0;
+        }
+        .amount-due{
+            color: #e2533f;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}

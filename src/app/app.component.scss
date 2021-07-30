@@ -1,0 +1,19 @@
+.content {
+    padding: 12px 48px;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+}
+
+@media only screen and (max-width: 510px) { 
+    .content {
+        padding: 12px 24px;
+    }
+}
+
+@media only screen and (max-width: 410px) { 
+    .content {
+        padding: 12px;
+    }
+}
+

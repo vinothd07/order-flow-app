@@ -1,0 +1,101 @@
+<div class="root">
+    <div class="order">
+        <div class="order-wrapper">
+            <div class="header-sec" fxLayout="row" fxLayoutAlign="start none">
+                <div fxLayout="column" fxLayoutAlign="space-around start" class="w-100-p">
+                    <div>
+                        <p class="total-due">
+                            Total Due: <span> AED 177,383.69</span>
+                        </p>
+                    </div>
+                    <div fxLayout="row wrap" class="search-section" fxLayoutAlign="space-between center"
+                        fxLayoutAlign.xs="center center">
+                        <div fxFlex.xs="50%" fxFlex.sm="15%" fxFlex.md="10%" fxFlex.xl="8%" fxFlex.lg="7%" fxFlex="7%">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <i class="fa fa-exchange"></i>
+                                    Sort By
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a class="dropdown-item" (click)="_sort('desc')">Completion Date - Descending</a>
+                                    <a class="dropdown-item" (click)="_sort('asc')">Completion Date - Ascending</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex.xs="50%" fxFlex.sm="15%" fxFlex.md="10%" fxFlex.xl="8%" fxFlex.lg="7%" fxFlex="7%">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <i class="fa fa-sort"></i>
+                                    Filter
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a class="dropdown-item" (click)="_filter('WASHING')">WASHING</a>
+                                    <a class="dropdown-item" (click)="_filter('RASHID')">RASHID</a>
+                                    <a class="dropdown-item" (click)="_filter('PAYMENT DUE')">PAYMENT DUE</a>
+                                    <a class="dropdown-item" (click)="_filter('all')">ALL</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex.xs="100%" fxFlex.sm="70%" fxFlex.md="80%" fxFlex.xl="84%" fxFlex.lg="86%"
+                            fxFlex="86%" class="search">
+                            <input type="text" placeholder="Customer name/Phone No./Reg No." name="search"
+                                [(ngModel)]="serachData" (ngModelChange)="_search($event)">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-columns" fxLayout="row wrap" fxLayoutAlign="space-between none" fxLayoutGap="0">
+                <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.xl="25%" fxFlex.lg="25%" fxFlex="25%"
+                    class="main-col">
+                    <h4 class="column-title">Open</h4>
+                    <div class="order-column">
+                        <div class="tasks-container" cdkDropList #openList="cdkDropList" [cdkDropListData]="open"
+                            [cdkDropListConnectedTo]="[wipList]">
+                            <app-order-card *ngFor="let item of open" [item]="item" cdkDrag></app-order-card>
+                        </div>
+                    </div>
+                </div>
+
+                <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.xl="25%" fxFlex.lg="25%" fxFlex="25%"
+                    class="main-col">
+                    <h4 class="column-title">WIP</h4>
+                    <div class="order-column">
+                        <div class="tasks-container" cdkDropList #wipList="cdkDropList" [cdkDropListData]="wip"
+                            [cdkDropListConnectedTo]="[readyList]" (cdkDropListDropped)="drop($event)">
+                            <app-order-card *ngFor="let item of wip" [item]="item" cdkDrag></app-order-card>
+                        </div>
+                    </div>
+                </div>
+
+                <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.xl="25%" fxFlex.lg="25%" fxFlex="25%"
+                    class="main-col">
+                    <h4 class="column-title">Ready</h4>
+                    <div class="order-column">
+                        <div class="tasks-container" cdkDropList #readyList="cdkDropList" [cdkDropListData]="ready"
+                            [cdkDropListConnectedTo]="[paymentList]" (cdkDropListDropped)="drop($event)">
+                            <app-order-card *ngFor="let item of ready" [item]="item" cdkDrag></app-order-card>
+                        </div>
+                    </div>
+                </div>
+
+                <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.xl="25%" fxFlex.lg="25%" fxFlex="25%"
+                    class="main-col">
+                    <h4 class="column-title">Payment Due</h4>
+                    <div class="order-column">
+                        <div class="tasks-container" cdkDropList #paymentList="cdkDropList" [cdkDropListData]="payment"
+                            (cdkDropListDropped)="drop($event)">
+                            <app-order-card *ngFor="let item of payment" [item]="item" cdkDrag></app-order-card>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
